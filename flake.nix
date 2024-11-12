@@ -29,5 +29,9 @@
     nixosModules.${pname} = import ./module.nix self pname;
 
     nixosModules.default = self.nixosModules.${pname};
+
+    hydraJobs = {
+      inherit (self) packages;
+    };
   };
 }
